@@ -13,6 +13,8 @@ import Loader from "./Loader/Loader";
 import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import { Route, Routes } from "react-router-dom";
 import Layot from "./Layot";
+import { refreshUser } from "../redux/auth/operations";
+import { selectIsRefreshing } from "../redux/auth/selectors";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
@@ -23,22 +25,24 @@ const RegistrationPage = lazy(() =>
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
 function App() {
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
-  return (
-    <div>
-      <Layot>
-        <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/register" element={<RegistrationPage />}></Route>
-          <Route path="/login" element={<LoginPage />}></Route>
-          <Route path="/contacts" element={<ContactsPage />}></Route>
-          <Route path="*" element={<NotFoundPage />}></Route>
-        </Routes>
-      </Layot>
-    </div>
+  return isRefreshing ? (
+    <b>Please wait... </b>
+  ) : (
+    <Layot>
+      <Routes>
+        <Route path="/" element={<HomePage />}></Route>
+        <Route path="/register" element={<RegistrationPage />}></Route>
+        <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/contacts" element={<ContactsPage />}></Route>
+        <Route path="*" element={<NotFoundPage />}></Route>
+      </Routes>
+    </Layot>
   );
 }
 
