@@ -3,6 +3,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { RiContactsBook3Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
+import { openModal } from "../../redux/contacts/slice";
 
 export default function Contact({ contact: { name, number, id } }) {
   const dispatch = useDispatch();
@@ -11,6 +12,9 @@ export default function Contact({ contact: { name, number, id } }) {
     dispatch(deleteContact(id));
   };
 
+  const handleOpenModal = () => {
+    dispatch(openModal());
+  };
   return (
     <div className={style.contact}>
       <div className={style.contactDate}>
@@ -27,7 +31,9 @@ export default function Contact({ contact: { name, number, id } }) {
         <button onClick={handleDelete} className={style.btn}>
           Delete
         </button>
-        <button className={style.btn}>Update</button>
+        <button onClick={handleOpenModal} className={style.btn}>
+          Update
+        </button>
       </div>
     </div>
   );

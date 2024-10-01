@@ -30,8 +30,7 @@ const AddFormSchema = Yup.object().shape({
 
 export default function ContactForm() {
   const dispatch = useDispatch();
-  const nameFieldId = useId();
-  const numberFieldId = useId();
+  const id = useId();
 
   const handleSubmit = (value, actions) => {
     dispatch(addContact(value));
@@ -47,15 +46,15 @@ export default function ContactForm() {
       <Form className={style.form}>
         <div className={style.field}>
           <div className={style.data}>
-            <label htmlFor={nameFieldId}>Name</label>
-            <Field type="text" name="name" id={nameFieldId} />
+            <label htmlFor={`name-${id}`}>Name</label>
+            <Field type="text" name="name" id={`name-${id}`} />
           </div>
           <ErrorMessage className={style.error} name="name" component="span" />
         </div>
         <div className={style.field}>
           <div className={style.data}>
-            <label htmlFor={numberFieldId}>Number</label>
-            <Field type="text" name="number" id={numberFieldId} />
+            <label htmlFor={`number-${id}`}>Number</label>
+            <Field type="text" name="number" id={`number-${id}`} />
           </div>
           <ErrorMessage
             name="number"
