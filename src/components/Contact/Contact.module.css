@@ -14,7 +14,7 @@
   padding: 8px;
 }
 
-.deleteBtn {
+.btn {
   width: 80px;
   padding: 6px;
   border: none;
@@ -36,4 +36,10 @@
   gap: 8px;
   justify-content: center;
   align-items: center;
+}
+
+.btnwrap {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }

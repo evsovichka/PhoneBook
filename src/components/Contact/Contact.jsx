@@ -23,9 +23,12 @@ export default function Contact({ contact: { name, number, id } }) {
           <p>{number}</p>
         </div>
       </div>
-      <button onClick={handleDelete} className={style.deleteBtn}>
-        Delete
-      </button>
+      <div className={style.btnwrap}>
+        <button onClick={handleDelete} className={style.btn}>
+          Delete
+        </button>
+        <button className={style.btn}>Update</button>
+      </div>
     </div>
   );
 }
