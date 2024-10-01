@@ -4,11 +4,11 @@ import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import * as Yup from "yup";
 
-const initialValues = {
-  name: "",
-  email: "",
-  password: "",
-};
+// const initialValues = {
+//   name: "",
+//   email: "",
+//   password: "",
+// };
 
 const registrationSchema = Yup.object().shape({
   name: Yup.string()
@@ -16,7 +16,7 @@ const registrationSchema = Yup.object().shape({
     .max(50, "Long name")
     .required("Required"),
   email: Yup.string().email("Not valid").required("Required"),
-  password: Yup.string().min(4, "Too short").max(16, "Too long"),
+  password: Yup.string().min(4, "Too short").max(20, "Too long"),
 });
 
 export default function RegistrationForm() {
@@ -31,7 +31,11 @@ export default function RegistrationForm() {
 
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={{
+        name: "",
+        email: "",
+        password: "",
+      }}
       onSubmit={handleSubmit}
       validationSchema={registrationSchema}
     >
