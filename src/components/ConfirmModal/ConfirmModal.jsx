@@ -19,7 +19,7 @@ export default function ConfirmModal() {
 
   return (
     <ReactModal
-      isOpen={modalIsOpen === "openConfirm"}
+      isOpen={true}
       ariaHideApp={false}
       onRequestClose={() => dispatch(closeModal())}
       shouldCloseOnOverlayClick={true}
@@ -28,7 +28,9 @@ export default function ConfirmModal() {
         overlay: { backgroundColor: "rgba(60, 60, 60, 0.9)" },
       }}
     >
-      <p>Are you sure you want to delete {name}?</p>
+      <p>
+        Are you sure you want to delete <b>{name}</b>?
+      </p>
       <div>
         <button onClick={handleDelete} type="button">
           Delete

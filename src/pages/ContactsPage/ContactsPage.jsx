@@ -12,6 +12,7 @@ import {
 import ModalForm from "../../components/ModalForm/ModalForm";
 import toast from "react-hot-toast";
 import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
+import { clearMessage } from "../../redux/contacts/slice";
 
 export default function ContactsPage() {
   const contactlist = useSelector(selectContacts);
@@ -19,6 +20,7 @@ export default function ContactsPage() {
   const message = useSelector(selectMessage);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -36,8 +38,9 @@ export default function ContactsPage() {
           secondary: "#FFFAEE",
         },
       });
+      dispatch(clearMessage());
     }
-  }, [message]);
+  }, [message, dispatch]);
 
   return (
     <div>

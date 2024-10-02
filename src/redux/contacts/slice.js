@@ -23,6 +23,7 @@ const contactsSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.items = action.payload;
+        // state.message = "";
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.error = null;
@@ -78,7 +79,7 @@ const contactsSlice = createSlice({
   },
   reducers: {
     closeModal: (state) => {
-      state.modalIsOpen = null;
+      state.modalIsOpen = "";
     },
     openModal: (state, action) => {
       state.modalIsOpen = action.payload;
@@ -86,8 +87,12 @@ const contactsSlice = createSlice({
     choseContact: (state, action) => {
       state.contact = action.payload;
     },
+    clearMessage: (state) => {
+      state.message = "";
+    },
   },
 });
 
-export const { closeModal, openModal, choseContact } = contactsSlice.actions;
+export const { closeModal, openModal, choseContact, clearMessage } =
+  contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
