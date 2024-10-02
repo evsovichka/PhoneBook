@@ -6,25 +6,46 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import {
   selectContacts,
+  selectMessage,
   selectModalIsOpen,
 } from "../../redux/contacts/selectors";
 import ModalForm from "../../components/ModalForm/ModalForm";
+import toast from "react-hot-toast";
+import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
 
 export default function ContactsPage() {
   const contactlist = useSelector(selectContacts);
   const modalIsOpen = useSelector(selectModalIsOpen);
+  const message = useSelector(selectMessage);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (message) {
+      toast.success(`${message}`, {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#713200",
+        },
+        iconTheme: {
+          primary: "#713200",
+          secondary: "#FFFAEE",
+        },
+      });
+    }
+  }, [message]);
+
   return (
     <div>
       <ContactForm />
       {contactlist.length > 2 && <SearchBox />}
       <ContactList />
-      {modalIsOpen && <ModalForm />}
+      {modalIsOpen === "openForm" && <ModalForm />}
+      {modalIsOpen === "openConfirm" && <ConfirmModal />}
     </div>
   );
 }

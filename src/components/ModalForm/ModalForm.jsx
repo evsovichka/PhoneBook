@@ -1,15 +1,14 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
 import ReactModal from "react-modal";
-import { useDispatch } from "react-redux";
-import { updateContact } from "../../redux/contacts/operations";
-import { closeModal, openModal } from "../../redux/contacts/slice";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchContacts, updateContact } from "../../redux/contacts/operations";
+import { choseContact, closeModal } from "../../redux/contacts/slice";
 import * as Yup from "yup";
-const initialValues = {
-  id: "",
-  name: "",
-  number: "",
-};
+import {
+  selectModalIsOpen,
+  selectUpdateContact,
+} from "../../redux/contacts/selectors";
 
 const updateFormSchema = Yup.object().shape({
   name: Yup.string()
@@ -30,15 +29,19 @@ const updateFormSchema = Yup.object().shape({
 
 export default function ModalForm() {
   const dispatch = useDispatch();
-  const id = useId();
+  const FieldId = useId();
+  const { id, name, number } = useSelector(selectUpdateContact);
+  const modalIsOpen = useSelector(selectModalIsOpen);
+
   const handleSubmit = (value, actions) => {
-    // dispatch(openModal());
-    actions.resetForm();
-    // dispatch(closeModal());
+    dispatch(updateContact({ contactId: id, credential: value }));
+    dispatch(choseContact({}));
+    dispatch(closeModal());
   };
+
   return (
     <ReactModal
-      isOpen={true}
+      isOpen={modalIsOpen === "openForm"}
       ariaHideApp={false}
       onRequestClose={() => dispatch(closeModal())}
       shouldCloseOnOverlayClick={true}
@@ -48,19 +51,22 @@ export default function ModalForm() {
       }}
     >
       <Formik
-        initialValues={initialValues}
+        initialValues={{
+          name: name,
+          number: number,
+        }}
         onSubmit={handleSubmit}
         validationSchema={updateFormSchema}
       >
         <Form>
           <div>
-            <label htmlFor={`name-${id}`}>Name</label>
-            <Field type="text" name="name" id={`name-${id}`} />
+            <label htmlFor={`name-${FieldId}`}>Name</label>
+            <Field type="text" name="name" id={`name-${FieldId}`} />
             <ErrorMessage name="name" component="span" />
           </div>
           <div>
-            <label htmlFor={`number-${id}`}>Number</label>
-            <Field type="text" name="number" id={`number-${id}`} />
+            <label htmlFor={`number-${FieldId}`}>Number</label>
+            <Field type="text" name="number" id={`number-${FieldId}`} />
             <ErrorMessage name="number" component="span" />
           </div>
           <button type="submit">Update</button>

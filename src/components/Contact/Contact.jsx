@@ -3,17 +3,20 @@ import { BsFillTelephoneFill } from "react-icons/bs";
 import { RiContactsBook3Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contacts/operations";
-import { openModal } from "../../redux/contacts/slice";
+import { choseContact, openModal } from "../../redux/contacts/slice";
+import toast from "react-hot-toast";
 
 export default function Contact({ contact: { name, number, id } }) {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteContact(id));
+    dispatch(choseContact({ id, number, name }));
+    dispatch(openModal("openConfirm"));
   };
 
   const handleOpenModal = () => {
-    dispatch(openModal());
+    dispatch(choseContact({ id, number, name }));
+    dispatch(openModal("openForm"));
   };
   return (
     <div className={style.contact}>

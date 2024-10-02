@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://connections-api.goit.global";
 
@@ -50,3 +51,17 @@ export const updateContact = createAsyncThunk(
     }
   }
 );
+
+export const message = (message) => {
+  toast.success(message, {
+    style: {
+      border: "1px solid #713200",
+      padding: "16px",
+      color: "#713200",
+    },
+    iconTheme: {
+      primary: "#713200",
+      secondary: "#FFFAEE",
+    },
+  });
+};
