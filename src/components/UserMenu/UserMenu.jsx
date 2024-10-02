@@ -9,7 +9,7 @@ export default function UserMenu() {
   const isLoading = useSelector(selectIsLoading);
   return (
     <div className={style.menu}>
-      <p> Welcome, {username.name}</p>
+      <p> Welcome, {username.name} !</p>
       <button
         className={style.btn}
         type="button"

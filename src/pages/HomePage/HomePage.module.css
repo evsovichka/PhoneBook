@@ -1,0 +1,40 @@
+.pageBox {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+.list ul {
+  margin-left: 60px;
+}
+.link {
+  text-decoration: none;
+  color: #c67c4e;
+  font-weight: 500;
+}
+
+.wraplink {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .pageBox {
+    gap: 60px;
+  }
+}

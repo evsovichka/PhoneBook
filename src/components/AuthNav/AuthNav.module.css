@@ -11,6 +11,11 @@
   text-decoration: none;
   display: block;
 }
+.link:hover {
+  cursor: pointer;
+
+  transform: scale(1.1);
+}
 .activeLink {
   text-decoration: underline;
   font-weight: 500;

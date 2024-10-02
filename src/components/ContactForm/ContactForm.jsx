@@ -44,23 +44,31 @@ export default function ContactForm() {
       validationSchema={AddFormSchema}
     >
       <Form className={style.form}>
-        <div className={style.field}>
-          <div className={style.data}>
-            <label htmlFor={`name-${id}`}>Name</label>
-            <Field type="text" name="name" id={`name-${id}`} />
-          </div>
-          <ErrorMessage className={style.error} name="name" component="span" />
-        </div>
-        <div className={style.field}>
-          <div className={style.data}>
-            <label htmlFor={`number-${id}`}>Number</label>
-            <Field type="text" name="number" id={`number-${id}`} />
-          </div>
-          <ErrorMessage
-            name="number"
-            component="span"
-            className={style.error}
+        <div className={style.formField}>
+          <label className={style.label} htmlFor={`name-${id}`}>
+            Name
+          </label>
+          <Field
+            className={style.input}
+            type="text"
+            name="name"
+            id={`name-${id}`}
+            placeholder="Enter name"
           />
+          <ErrorMessage name="name" component="span" />
+        </div>
+        <div className={style.formField}>
+          <label className={style.label} htmlFor={`number-${id}`}>
+            Number
+          </label>
+          <Field
+            className={style.input}
+            type="text"
+            name="number"
+            id={`number-${id}`}
+            placeholder="Enter number"
+          />
+          <ErrorMessage name="number" component="span" />
         </div>
         <button className={style.btn} type="submit">
           Add contact

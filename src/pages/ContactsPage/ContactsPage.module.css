@@ -1,0 +1,34 @@
+.pageBox {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.listWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .wrap {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .listWrap {
+    gap: 20px;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .wrap {
+    align-items: center;
+  }
+}

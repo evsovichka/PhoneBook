@@ -3,12 +3,7 @@ import { useId } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import * as Yup from "yup";
-
-// const initialValues = {
-//   name: "",
-//   email: "",
-//   password: "",
-// };
+import style from "./RegistrationForm.module.css";
 
 const registrationSchema = Yup.object().shape({
   name: Yup.string()
@@ -16,7 +11,10 @@ const registrationSchema = Yup.object().shape({
     .max(50, "Long name")
     .required("Required"),
   email: Yup.string().email("Not valid").required("Required"),
-  password: Yup.string().min(4, "Too short").max(20, "Too long"),
+  password: Yup.string()
+    .min(4, "Too short")
+    .max(20, "Too long")
+    .required("Required"),
 });
 
 export default function RegistrationForm() {
@@ -39,23 +37,46 @@ export default function RegistrationForm() {
       onSubmit={handleSubmit}
       validationSchema={registrationSchema}
     >
-      <Form>
-        <div>
-          <label htmlFor={`name-${id}`}>Username</label>
-          <Field type="text" name="name" id={`name-${id}`} />
+      <Form className={style.form}>
+        <div className={style.formField}>
+          <label className={style.label} htmlFor={`name-${id}`}>
+            Username
+          </label>
+          <Field
+            className={style.input}
+            type="text"
+            name="name"
+            id={`name-${id}`}
+          />
           <ErrorMessage name="name" component="span" />
         </div>
-        <div>
-          <label htmlFor={`email-${id}`}>Email</label>
-          <Field type="email" name="email" id={`email-${id}`} />
+        <div className={style.formField}>
+          <label className={style.label} htmlFor={`email-${id}`}>
+            Email
+          </label>
+          <Field
+            className={style.input}
+            type="email"
+            name="email"
+            id={`email-${id}`}
+          />
           <ErrorMessage name="email" component="span" />
         </div>
-        <div>
-          <label htmlFor={`password-${id}`}>Password</label>
-          <Field type="password" name="password" id={`password-${id}`} />
+        <div className={style.formField}>
+          <label className={style.label} htmlFor={`password-${id}`}>
+            Password
+          </label>
+          <Field
+            className={style.input}
+            type="password"
+            name="password"
+            id={`password-${id}`}
+          />
           <ErrorMessage name="password" component="span" />
         </div>
-        <button type="submit">Register</button>
+        <button className={style.btn} type="submit">
+          Register
+        </button>
       </Form>
     </Formik>
   );

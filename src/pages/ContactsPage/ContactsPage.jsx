@@ -13,6 +13,7 @@ import ModalForm from "../../components/ModalForm/ModalForm";
 import toast from "react-hot-toast";
 import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
 import { clearMessage } from "../../redux/contacts/slice";
+import style from "./ContactsPage.module.css";
 
 export default function ContactsPage() {
   const contactlist = useSelector(selectContacts);
@@ -43,10 +44,15 @@ export default function ContactsPage() {
   }, [message, dispatch]);
 
   return (
-    <div>
-      <ContactForm />
-      {contactlist.length > 2 && <SearchBox />}
-      <ContactList />
+    <div className={style.pageBox}>
+      <h3>Phone Book</h3>
+      <div className={style.wrap}>
+        <ContactForm />
+        <div className={style.listWrap}>
+          {contactlist.length > 2 && <SearchBox />}
+          <ContactList />
+        </div>
+      </div>
       <ModalForm />
       <ConfirmModal />
     </div>

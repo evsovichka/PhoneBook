@@ -3,6 +3,7 @@ import { useId } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import * as Yup from "yup";
+import style from "./LoginForm.module.css";
 
 const initialValues = {
   email: "",
@@ -11,7 +12,10 @@ const initialValues = {
 
 const loginSchema = Yup.object().shape({
   email: Yup.string().email("Not valid").required("Required"),
-  password: Yup.string().min(4, "Too short").max(20, "Too long"),
+  password: Yup.string()
+    .min(4, "Too short")
+    .max(16, "Too long")
+    .required("Required"),
 });
 
 export default function LoginForm() {
@@ -29,18 +33,36 @@ export default function LoginForm() {
       onSubmit={handleSubmit}
       validationSchema={loginSchema}
     >
-      <Form>
-        <div>
-          <label htmlFor={`email-${id}`}>Email</label>
-          <Field type="email" name="email" id={`email-${id}`} />
+      <Form className={style.form}>
+        <div className={style.formField}>
+          <label className={style.label} htmlFor={`email-${id}`}>
+            Email
+          </label>
+          <Field
+            className={style.input}
+            type="email"
+            name="email"
+            id={`email-${id}`}
+            placeholder="Enter your email"
+          />
           <ErrorMessage name="email" component="span" />
         </div>
-        <div>
-          <label htmlFor={`password-${id}`}>Password</label>
-          <Field type="password" name="password" id={`password-${id}`} />
+        <div className={style.formField}>
+          <label className={style.label} htmlFor={`password-${id}`}>
+            Password
+          </label>
+          <Field
+            className={style.input}
+            type="password"
+            name="password"
+            id={`password-${id}`}
+            placeholder="Enter your password"
+          />
           <ErrorMessage name="password" component="span" />
         </div>
-        <button type="submit">Log in</button>
+        <button className={style.btn} type="submit">
+          Log in
+        </button>
       </Form>
     </Formik>
   );

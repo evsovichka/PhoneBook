@@ -1,45 +1,43 @@
-.contactDate {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  text-decoration: underline;
-  align-items: baseline;
-}
-
 .contact {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding: 8px;
 }
 
-.btn {
-  width: 80px;
-  padding: 6px;
-  border: none;
-  border-radius: 30px;
-  background-color: rgba(164, 56, 123, 0.87);
-  color: rgb(248, 237, 244);
+.contactData {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
 }
-
-.number {
+.field {
   display: flex;
   flex-direction: row;
-  gap: 8px;
-  justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 .name {
-  display: flex;
-  flex-direction: row;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
+  font-weight: 500;
+  color: #c67c4e;
+  font-size: 18px;
 }
 
 .btnwrap {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  background-color: #c67c4e;
+  color: #f9f2ed;
+  font-size: 300;
+}
+
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
