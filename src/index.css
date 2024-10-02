@@ -1,15 +1,10 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: "Fredoka", sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(164, 56, 123, 0.87);
-  background-color: hsl(0, 15%, 85%);
-
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  color: #313131;
+  background-color: #edd6c8;
 }
 
 a,
@@ -22,4 +17,22 @@ ul,
 li {
   margin: 0;
   padding: 0;
+}
+
+.container {
+  max-width: 320px;
+  margin: 15px auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+  }
 }
