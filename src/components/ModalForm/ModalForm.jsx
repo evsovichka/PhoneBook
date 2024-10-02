@@ -41,7 +41,7 @@ export default function ModalForm() {
 
   return (
     <ReactModal
-      isOpen={true}
+      isOpen={modalIsOpen === "openForm"}
       ariaHideApp={false}
       onRequestClose={() => dispatch(closeModal())}
       shouldCloseOnOverlayClick={true}

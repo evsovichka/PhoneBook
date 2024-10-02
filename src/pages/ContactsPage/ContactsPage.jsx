@@ -47,8 +47,8 @@ export default function ContactsPage() {
       <ContactForm />
       {contactlist.length > 2 && <SearchBox />}
       <ContactList />
-      {modalIsOpen === "openForm" && <ModalForm />}
-      {modalIsOpen === "openConfirm" && <ConfirmModal />}
+      <ModalForm />
+      <ConfirmModal />
     </div>
   );
 }

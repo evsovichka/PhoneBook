@@ -19,7 +19,7 @@ export default function ConfirmModal() {
 
   return (
     <ReactModal
-      isOpen={true}
+      isOpen={modalIsOpen === "openConfirm"}
       ariaHideApp={false}
       onRequestClose={() => dispatch(closeModal())}
       shouldCloseOnOverlayClick={true}
