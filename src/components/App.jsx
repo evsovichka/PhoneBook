@@ -1,23 +1,12 @@
-import ContactForm from "./ContactForm/ContactForm";
-import ContactList from "./ContactList/ContactList";
-import SearchBox from "./SearchBox/SearchBox";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectContacts,
-  selectError,
-  selectIsLoading,
-} from "../redux/contacts/selectors";
 import { lazy, useEffect } from "react";
-import { fetchContacts } from "../redux/contacts/operations";
-import Loader from "./Loader/Loader";
-import ErrorMessage from "./ErrorMessage/ErrorMessage";
 import { Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Layot from "./Layot";
 import { refreshUser } from "../redux/auth/operations";
 import { selectIsRefreshing } from "../redux/auth/selectors";
 import RestrictedRoute from "./RestrictedRoute";
 import PrivateRoute from "./PrivateRoute";
-import { Toaster } from "react-hot-toast";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
@@ -38,7 +27,7 @@ function App() {
   return (
     <div>
       {isRefreshing ? (
-        <b>Please wait... </b>
+        <b style={{ fontSize: "20px", color: "#c67c4e" }}>Please wait... </b>
       ) : (
         <Layot>
           <Routes>

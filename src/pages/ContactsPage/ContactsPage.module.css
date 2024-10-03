@@ -4,7 +4,11 @@
   gap: 30px;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
+  position: relative;
+}
+
+.title {
+  margin-top: 10px;
 }
 
 .wrap {

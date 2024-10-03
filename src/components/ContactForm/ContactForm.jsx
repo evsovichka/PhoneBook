@@ -1,10 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
-import style from "./ContactForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import { selectIsLoading } from "../../redux/contacts/selectors";
+import style from "./ContactForm.module.css";
+
 const initialValues = {
   id: "",
   name: "",

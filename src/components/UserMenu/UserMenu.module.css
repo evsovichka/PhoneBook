@@ -3,12 +3,11 @@
   flex-direction: row;
   gap: 7px;
   align-items: center;
-  font-size: 14px;
 }
 
 .btn {
   color: #edd6c8;
-  font-size: 12px;
+  font-size: 10px;
   background-color: #c67c4e;
   border: none;
   border-radius: 20px;
@@ -22,7 +21,6 @@
 @media screen and (min-width: 768px) {
   .menu {
     gap: 60px;
-    font-size: 22px;
   }
 
   .btn {

@@ -19,7 +19,7 @@
 .name {
   font-weight: 500;
   color: #c67c4e;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .btnwrap {
@@ -34,10 +34,19 @@
   border-radius: 30px;
   background-color: #c67c4e;
   color: #f9f2ed;
-  font-size: 300;
+  font-size: 12px;
 }
 
 .btn:hover {
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 1158px) {
+  .name {
+    font-size: 24px;
+  }
+  .btn {
+    font-size: 14px;
+  }
 }

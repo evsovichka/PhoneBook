@@ -11,10 +11,12 @@
   border-radius: 30px;
   border: 2px solid #c67c4e;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  max-width: 250px;
 }
 
 @media screen and (min-width: 768px) {
   .pageBox {
     max-width: 450px;
+    font-size: 22px;
   }
 }

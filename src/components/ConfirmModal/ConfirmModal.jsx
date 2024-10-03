@@ -7,8 +7,9 @@ import {
 import { closeModal } from "../../redux/contacts/slice";
 import { deleteContact } from "../../redux/contacts/operations";
 import style from "./ConfirmModal.module.css";
+
 export default function ConfirmModal() {
-  const { id, name, number } = useSelector(selectUpdateContact);
+  const { id, name } = useSelector(selectUpdateContact);
   const dispatch = useDispatch();
   const modalIsOpen = useSelector(selectModalIsOpen);
 

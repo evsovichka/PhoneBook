@@ -1,11 +1,10 @@
 import { Suspense } from "react";
-import AppBar from "./AppBar/AppBar";
 import { useSelector } from "react-redux";
-import ErrorMessage from "./ErrorMessage/ErrorMessage";
-import { selectIsError } from "../redux/auth/selectors";
-import { selectError } from "../redux/contacts/selectors";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
+import AppBar from "./AppBar/AppBar";
+import { selectIsError } from "../redux/auth/selectors";
+import { selectError } from "../redux/contacts/selectors";
 
 export default function Layot({ children }) {
   const isErrorContact = useSelector(selectError);
@@ -19,7 +18,6 @@ export default function Layot({ children }) {
   return (
     <div>
       <AppBar />
-      {/* {(isErrorContact || IsErrorAuth) && <ErrorMessage />} */}
       <Suspense fallback={null}>{children}</Suspense>
     </div>
   );

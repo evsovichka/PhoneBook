@@ -2,15 +2,15 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
 import ReactModal from "react-modal";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts, updateContact } from "../../redux/contacts/operations";
-import { choseContact, closeModal } from "../../redux/contacts/slice";
 import * as Yup from "yup";
+import { updateContact } from "../../redux/contacts/operations";
+import { choseContact, closeModal } from "../../redux/contacts/slice";
 import {
   selectModalIsOpen,
   selectUpdateContact,
 } from "../../redux/contacts/selectors";
-
 import style from "./ModalForm.module.css";
+
 const updateFormSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too short")
@@ -34,7 +34,7 @@ export default function ModalForm() {
   const { id, name, number } = useSelector(selectUpdateContact);
   const modalIsOpen = useSelector(selectModalIsOpen);
 
-  const handleSubmit = (value, actions) => {
+  const handleSubmit = (value) => {
     dispatch(updateContact({ contactId: id, credential: value }));
     dispatch(choseContact({}));
     dispatch(closeModal());

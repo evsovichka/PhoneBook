@@ -2,9 +2,7 @@ import style from "./Contact.module.css";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { RiContactsBook3Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contacts/operations";
 import { choseContact, openModal } from "../../redux/contacts/slice";
-import toast from "react-hot-toast";
 
 export default function Contact({ contact: { name, number, id } }) {
   const dispatch = useDispatch();

@@ -1,10 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../redux/auth/operations";
 import * as Yup from "yup";
-import style from "./RegistrationForm.module.css";
+import { register } from "../../redux/auth/operations";
 import { selectIsLoading } from "../../redux/auth/selectors";
+import style from "./RegistrationForm.module.css";
 
 const registrationSchema = Yup.object().shape({
   name: Yup.string()
