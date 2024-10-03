@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import style from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
-
 const initialValues = {
   id: "",
   name: "",

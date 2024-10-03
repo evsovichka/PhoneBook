@@ -1,0 +1,30 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.btnWrap {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.btn {
+  padding: 15px;
+  border: none;
+  border-radius: 30px;
+  background-color: #c67c4e;
+  color: #f9f2ed;
+  font-size: 14px;
+  font-weight: 500;
+  width: 90px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

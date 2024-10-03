@@ -10,6 +10,7 @@ import {
   selectUpdateContact,
 } from "../../redux/contacts/selectors";
 
+import style from "./ModalForm.module.css";
 const updateFormSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too short")
@@ -48,6 +49,19 @@ export default function ModalForm() {
       shouldCloseOnEsc={true}
       style={{
         overlay: { backgroundColor: "rgba(60, 60, 60, 0.9)" },
+        content: {
+          border: "2px solid #c67c4e",
+          borderRadius: "30px",
+          minWidth: "260px",
+          maxWidth: "400px",
+          maxHeight: "420px",
+          margin: "auto",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "0",
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.4)",
+        },
       }}
     >
       <Formik
@@ -58,18 +72,34 @@ export default function ModalForm() {
         onSubmit={handleSubmit}
         validationSchema={updateFormSchema}
       >
-        <Form>
-          <div>
-            <label htmlFor={`name-${FieldId}`}>Name</label>
-            <Field type="text" name="name" id={`name-${FieldId}`} />
+        <Form className={style.form}>
+          <div className={style.formField}>
+            <label className={style.label} htmlFor={`name-${FieldId}`}>
+              Name
+            </label>
+            <Field
+              className={style.input}
+              type="text"
+              name="name"
+              id={`name-${FieldId}`}
+            />
             <ErrorMessage name="name" component="span" />
           </div>
-          <div>
-            <label htmlFor={`number-${FieldId}`}>Number</label>
-            <Field type="text" name="number" id={`number-${FieldId}`} />
+          <div className={style.formField}>
+            <label className={style.label} htmlFor={`number-${FieldId}`}>
+              Number
+            </label>
+            <Field
+              className={style.input}
+              type="text"
+              name="number"
+              id={`number-${FieldId}`}
+            />
             <ErrorMessage name="number" component="span" />
           </div>
-          <button type="submit">Update</button>
+          <button className={style.btn} type="submit">
+            Update
+          </button>
         </Form>
       </Formik>
     </ReactModal>

@@ -1,5 +1,4 @@
 :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   font-family: "Fredoka", sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -21,8 +20,8 @@ li {
 }
 
 .container {
-  max-width: 320px;
   margin: 15px auto;
+  max-width: 100%;
 }
 
 @media screen and (min-width: 768px) {
