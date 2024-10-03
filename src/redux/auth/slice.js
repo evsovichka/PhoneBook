@@ -1,6 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { login, logout, refreshUser, register } from "./operations";
-import { ref } from "yup";
 
 const authSlice = createSlice({
   name: "auth",

@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import toast from "react-hot-toast";
 
 axios.defaults.baseURL = "https://connections-api.goit.global";
 
@@ -20,7 +19,7 @@ export const addContact = createAsyncThunk(
   "contacts/addContact",
   async (newContact, thunkAPI) => {
     try {
-      const response = await axios.post("/contacts", newContact);
+      const response = await axios.post("/contactts", newContact);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -51,17 +50,3 @@ export const updateContact = createAsyncThunk(
     }
   }
 );
-
-export const message = (message) => {
-  toast.success(message, {
-    style: {
-      border: "1px solid #713200",
-      padding: "16px",
-      color: "#713200",
-    },
-    iconTheme: {
-      primary: "#713200",
-      secondary: "#FFFAEE",
-    },
-  });
-};

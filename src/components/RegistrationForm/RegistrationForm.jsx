@@ -1,9 +1,10 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import * as Yup from "yup";
 import style from "./RegistrationForm.module.css";
+import { selectIsLoading } from "../../redux/auth/selectors";
 
 const registrationSchema = Yup.object().shape({
   name: Yup.string()
@@ -20,6 +21,7 @@ const registrationSchema = Yup.object().shape({
 export default function RegistrationForm() {
   const id = useId();
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
 
   const handleSubmit = (values, actions) => {
     console.log(values);
@@ -74,7 +76,7 @@ export default function RegistrationForm() {
           />
           <ErrorMessage name="password" component="span" />
         </div>
-        <button className={style.btn} type="submit">
+        <button className={style.btn} type="submit" disabled={isLoading}>
           Register
         </button>
       </Form>

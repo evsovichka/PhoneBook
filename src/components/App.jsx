@@ -30,6 +30,7 @@ const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);

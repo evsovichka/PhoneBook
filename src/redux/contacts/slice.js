@@ -23,7 +23,6 @@ const contactsSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.items = action.payload;
-        // state.message = "";
       })
       .addCase(addContact.fulfilled, (state, action) => {
         state.error = null;

@@ -2,8 +2,9 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
 import style from "./ContactForm.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
+import { selectIsLoading } from "../../redux/contacts/selectors";
 const initialValues = {
   id: "",
   name: "",
@@ -30,6 +31,7 @@ const AddFormSchema = Yup.object().shape({
 export default function ContactForm() {
   const dispatch = useDispatch();
   const id = useId();
+  const isLoading = useSelector(selectIsLoading);
 
   const handleSubmit = (value, actions) => {
     dispatch(addContact(value));
@@ -69,7 +71,7 @@ export default function ContactForm() {
           />
           <ErrorMessage name="number" component="span" />
         </div>
-        <button className={style.btn} type="submit">
+        <button className={style.btn} type="submit" disabled={isLoading}>
           Add contact
         </button>
       </Form>

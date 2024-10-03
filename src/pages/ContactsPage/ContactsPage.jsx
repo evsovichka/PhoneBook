@@ -6,19 +6,20 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import {
   selectContacts,
+  selectIsLoading,
   selectMessage,
-  selectModalIsOpen,
 } from "../../redux/contacts/selectors";
 import ModalForm from "../../components/ModalForm/ModalForm";
 import toast from "react-hot-toast";
 import ConfirmModal from "../../components/ConfirmModal/ConfirmModal";
 import { clearMessage } from "../../redux/contacts/slice";
 import style from "./ContactsPage.module.css";
+import Loader from "../../components/Loader/Loader";
 
 export default function ContactsPage() {
   const contactlist = useSelector(selectContacts);
-  const modalIsOpen = useSelector(selectModalIsOpen);
   const message = useSelector(selectMessage);
+  const isLoading = useSelector(selectIsLoading);
 
   const dispatch = useDispatch();
 
@@ -45,6 +46,7 @@ export default function ContactsPage() {
 
   return (
     <div className={style.pageBox}>
+      {isLoading && <Loader />}
       <h3>Phone Book</h3>
       <div className={style.wrap}>
         <ContactForm />
