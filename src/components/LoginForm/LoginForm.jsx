@@ -15,7 +15,7 @@ const loginSchema = Yup.object().shape({
   email: Yup.string().email("Not valid").required("Required"),
   password: Yup.string()
     .min(4, "Too short")
-    .max(16, "Too long")
+    .max(20, "Too long")
     .required("Required"),
 });
 
