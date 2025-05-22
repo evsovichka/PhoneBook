@@ -42,9 +42,9 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 1024px) {
   .name {
-    font-size: 24px;
+    font-size: 18px;
   }
   .btn {
     font-size: 14px;

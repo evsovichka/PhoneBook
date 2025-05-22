@@ -4,19 +4,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 20px;
   align-items: center;
-  padding-bottom: 5px;
+  font-size: 14px;
+  padding: 15px 15px 5px 15px;
   border-bottom: 2px solid #c67c4e;
 }
 
 @media screen and (min-width: 768px) {
   .header {
-    margin-bottom: 50px;
+    padding: 20px 50px 10px 50px;
+    font-size: 16px;
   }
 }
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 1024px) {
   .header {
-    margin-bottom: 70px;
+    padding-bottom: 15px;
+    font-size: 18px;
   }
 }

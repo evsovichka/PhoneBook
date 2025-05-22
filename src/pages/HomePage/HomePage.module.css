@@ -1,10 +1,10 @@
-.pageBox {
+.section {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  max-width: 270px;
-  margin-right: auto;
-  margin-left: auto;
+  padding: 20px;
+  margin: 0 auto;
+  font-size: 14px;
 }
 .title {
   display: flex;
@@ -14,17 +14,22 @@
   align-items: center;
 }
 
+.title h3 {
+  font-size: 18px;
+}
+
 .list {
   display: flex;
   flex-direction: column;
   gap: 5px;
   align-items: center;
 }
+
 .list ul {
-  margin-left: 60px;
+  margin-left: 25px;
 }
 .link {
-  text-decoration: none;
+  text-decoration: underline;
   color: #c67c4e;
   font-weight: 500;
 }
@@ -36,10 +41,29 @@
   align-items: center;
 }
 
+.link:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
 @media screen and (min-width: 768px) {
-  .pageBox {
-    gap: 60px;
+  .section {
+    gap: 40px;
+    font-size: 16px;
+  }
+  .title h3 {
+    font-size: 20px;
+  }
+  .list ul {
+    margin-left: 85px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .section {
+    padding: 40px;
+    font-size: 18px;
+  }
+  .title h3 {
     font-size: 22px;
-    max-width: 420px;
   }
 }

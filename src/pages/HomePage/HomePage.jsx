@@ -3,7 +3,7 @@ import style from "./HomePage.module.css";
 
 export default function HomePage() {
   return (
-    <div className={style.pageBox}>
+    <div className={style.section}>
       <div className={style.title}>
         <h3>Welcome to My Phone Book</h3>
         <p>Stay connected with friends and family</p>

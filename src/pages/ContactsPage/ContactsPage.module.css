@@ -1,14 +1,16 @@
-.pageBox {
+.section {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   position: relative;
+  font-size: 14px;
 }
 
 .title {
-  margin-top: 10px;
+  font-size: 18px;
 }
 
 .wrap {
@@ -27,14 +29,22 @@
   .wrap {
     flex-direction: row;
     gap: 20px;
+    align-items: flex-start;
+  }
+  .title {
+    font-size: 20px;
   }
   .listWrap {
     gap: 20px;
   }
 }
 
-@media screen and (min-width: 1158px) {
-  .wrap {
-    align-items: center;
+@media screen and (min-width: 1024px) {
+  .section {
+    padding: 20px 50px;
+  }
+
+  .title {
+    font-size: 24px;
   }
 }

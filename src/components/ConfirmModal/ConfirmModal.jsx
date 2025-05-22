@@ -25,20 +25,12 @@ export default function ConfirmModal() {
       onRequestClose={() => dispatch(closeModal())}
       shouldCloseOnOverlayClick={true}
       shouldCloseOnEsc={true}
+      className={style.modalContent}
       style={{
-        overlay: { backgroundColor: "rgba(60, 60, 60, 0.9)" },
-        content: {
-          border: "2px solid #c67c4e",
-          borderRadius: "30px",
-          minWidth: "260px",
-          maxWidth: "400px",
-          maxHeight: "150px",
-          margin: "auto",
+        overlay: {
+          backgroundColor: "rgba(60, 60, 60, 0.9)",
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
-          padding: "0",
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.4)",
         },
       }}
     >

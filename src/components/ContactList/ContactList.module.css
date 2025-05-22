@@ -1,3 +1,10 @@
+.contactList {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
 .contactItem {
   list-style: none;
   border: 2px solid #c67c4e;
@@ -8,18 +15,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.contactList {
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 1024px) {
   .contactList {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
   }
 }

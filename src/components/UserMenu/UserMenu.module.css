@@ -3,6 +3,7 @@
   flex-direction: row;
   gap: 7px;
   align-items: center;
+  width: auto;
 }
 
 .btn {
@@ -15,12 +16,13 @@
 }
 .btn:hover {
   cursor: pointer;
+  transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (min-width: 768px) {
   .menu {
-    gap: 60px;
+    gap: 20px;
   }
 
   .btn {

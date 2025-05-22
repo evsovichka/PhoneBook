@@ -30,42 +30,45 @@ export default function LoginForm() {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      validationSchema={loginSchema}
-    >
-      <Form className={style.form}>
-        <div className={style.formField}>
-          <label className={style.label} htmlFor={`email-${id}`}>
-            Email
-          </label>
-          <Field
-            className={style.input}
-            type="email"
-            name="email"
-            id={`email-${id}`}
-            placeholder="Enter your email"
-          />
-          <ErrorMessage name="email" component="span" />
-        </div>
-        <div className={style.formField}>
-          <label className={style.label} htmlFor={`password-${id}`}>
-            Password
-          </label>
-          <Field
-            className={style.input}
-            type="password"
-            name="password"
-            id={`password-${id}`}
-            placeholder="Enter your password"
-          />
-          <ErrorMessage name="password" component="span" />
-        </div>
-        <button className={style.btn} type="submit" disabled={isLoading}>
-          Log in
-        </button>
-      </Form>
-    </Formik>
+    <section className={style.section}>
+      <h3>Log In to Your Phonebook</h3>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+        validationSchema={loginSchema}
+      >
+        <Form className={style.form}>
+          <div className={style.formField}>
+            <label className={style.label} htmlFor={`email-${id}`}>
+              Email
+            </label>
+            <Field
+              className={style.input}
+              type="email"
+              name="email"
+              id={`email-${id}`}
+              placeholder="Enter your email"
+            />
+            <ErrorMessage name="email" component="span" />
+          </div>
+          <div className={style.formField}>
+            <label className={style.label} htmlFor={`password-${id}`}>
+              Password
+            </label>
+            <Field
+              className={style.input}
+              type="password"
+              name="password"
+              id={`password-${id}`}
+              placeholder="Enter your password"
+            />
+            <ErrorMessage name="password" component="span" />
+          </div>
+          <button className={style.btn} type="submit" disabled={isLoading}>
+            Log in
+          </button>
+        </Form>
+      </Formik>
+    </section>
   );
 }

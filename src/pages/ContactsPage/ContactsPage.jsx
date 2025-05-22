@@ -45,7 +45,7 @@ export default function ContactsPage() {
   }, [message, dispatch]);
 
   return (
-    <div className={style.pageBox}>
+    <div className={style.section}>
       {isLoading && <Loader />}
       <h3 className={style.title}>Phone Book</h3>
       <div className={style.wrap}>

@@ -1,10 +1,22 @@
+.modalContent {
+  border: 2px solid #c67c4e;
+  background-color: #f9f2ed;
+  border-radius: 30px;
+  max-width: 250px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
 .box {
   display: flex;
   flex-direction: column;
   gap: 20px;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  font-size: 14px;
 }
 
 .btnWrap {
@@ -14,17 +26,30 @@
 }
 
 .btn {
-  padding: 15px;
+  padding: 10px;
   border: none;
   border-radius: 30px;
   background-color: #c67c4e;
   color: #f9f2ed;
-  font-size: 14px;
+  font-size: 600;
   font-weight: 500;
   width: 90px;
 }
 
 .btn:hover {
   cursor: pointer;
+  transform: scale(1.05);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 768px) {
+  .modalContent {
+    max-width: 345px;
+  }
+  .box {
+    font-size: 16px;
+  }
+  .btn {
+    padding: 10px;
+  }
 }

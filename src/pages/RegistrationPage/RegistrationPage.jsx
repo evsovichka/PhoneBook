@@ -3,8 +3,7 @@ import style from "./RegistrationPage.module.css";
 
 export default function RegistrationPage() {
   return (
-    <div className={style.pageBox}>
-      <h3>Create Your Phone Book Account</h3>
+    <div className={style.section}>
       <RegistrationForm />
     </div>
   );
